@@ -1,1 +1,2 @@
-// TODO: implement products components (product table, form)
+export { ProductsTable } from './ProductsTable';
+export { TableSkeleton } from './TableSkeleton';

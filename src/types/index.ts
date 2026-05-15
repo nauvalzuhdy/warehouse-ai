@@ -77,6 +77,9 @@ export interface Product {
   category: string | null;
   /** Product price in decimal format (optional) */
   price: number | null;
+  unit: string | null;
+  /** Product active status (soft delete flag) */
+  is_active: boolean;
   /** ISO timestamp when the product was created */
   created_at: string;
 }

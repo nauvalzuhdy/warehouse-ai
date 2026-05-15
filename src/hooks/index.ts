@@ -1,1 +1,1 @@
-// TODO: implement custom hooks
+export { useProducts } from './useProducts';
