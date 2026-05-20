@@ -63,3 +63,7 @@ Example: truncateText("Özel Döner Menüsü", 10) → "Özel Döner..."
 
 Export all three functions.
 
+18.05.2026
+- add none pada <SelectItem value="none">Tanpa Kategori</SelectItem>
+- 
+

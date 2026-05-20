@@ -50,8 +50,8 @@ export function ProductForm({ initialData, isEditing = false }: ProductFormProps
   };
 
   const handleCategoryChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, category: value }));
-  };
+  setFormData((prev) => ({ ...prev, category: value === 'none' ? '' : value }));
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -165,7 +165,7 @@ export function ProductForm({ initialData, isEditing = false }: ProductFormProps
                 <SelectValue placeholder="Pilih kategori" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Tanpa Kategori</SelectItem>
+                <SelectItem value="none">Tanpa Kategori</SelectItem>
                 <SelectItem value="Makanan">Makanan</SelectItem>
                 <SelectItem value="Minuman">Minuman</SelectItem>
                 <SelectItem value="Kebersihan">Kebersihan</SelectItem>
