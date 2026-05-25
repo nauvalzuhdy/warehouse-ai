@@ -31,7 +31,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: 'Gudang',
-    href: '/warehouses',
+    href: '/dashboard/warehouses',
     icon: <Warehouse className="w-5 h-5" />,
   },
   {

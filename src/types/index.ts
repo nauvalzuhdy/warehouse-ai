@@ -116,6 +116,62 @@ export interface Warehouse {
 }
 
 /**
+ * WarehouseWithUtilization type extending Warehouse with stock utilization metrics
+ * Used when displaying warehouse information with current stock levels and capacity usage
+ *
+ * @example
+ * ```typescript
+ * const warehouse: WarehouseWithUtilization = {
+ *   id: 'wh-123',
+ *   user_id: 'user-456',
+ *   name: 'Main Warehouse',
+ *   location: 'New York, NY',
+ *   max_capacity: 10000,
+ *   created_at: '2026-01-10T12:00:00Z',
+ *   total_stock: 7500,
+ *   utilization_percent: 75
+ * };
+ * ```
+ */
+export interface WarehouseWithUtilization extends Warehouse {
+  /** Total quantity of items currently in the warehouse */
+  total_stock: number;
+  /** Storage utilization percentage (0-100) */
+  utilization_percent: number;
+}
+
+/**
+ * Utilization status categories for warehouse capacity
+ * Used for visual indicators and warnings based on capacity usage
+ *
+ * - 'safe': 0-60% capacity
+ * - 'warning': 61-80% capacity
+ * - 'danger': 81-90% capacity
+ * - 'critical': 91-100% capacity
+ */
+export type UtilizationStatus = 'safe' | 'warning' | 'danger' | 'critical';
+
+/**
+ * Get utilization status based on percentage
+ * Returns a status category for UI/warning purposes
+ *
+ * @param percent - Utilization percentage (0-100)
+ * @returns UtilizationStatus - Status category
+ *
+ * @example
+ * ```typescript
+ * const status = getUtilizationStatus(75); // returns 'warning'
+ * const status = getUtilizationStatus(45); // returns 'safe'
+ * ```
+ */
+export function getUtilizationStatus(percent: number): UtilizationStatus {
+  if (percent <= 60) return 'safe';
+  if (percent <= 80) return 'warning';
+  if (percent <= 90) return 'danger';
+  return 'critical';
+}
+
+/**
  * Stock type representing inventory quantities in specific warehouses
  * Used for tracking product quantities across different warehouse locations
  *
