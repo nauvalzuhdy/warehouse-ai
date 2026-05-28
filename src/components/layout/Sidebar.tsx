@@ -36,7 +36,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: 'Manajemen Stok',
-    href: '/stock',
+    href: '/dashboard/stock',
     icon: <ClipboardList className="w-5 h-5" />,
   },
   {

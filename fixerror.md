@@ -67,3 +67,7 @@ Export all three functions.
 - add none pada <SelectItem value="none">Tanpa Kategori</SelectItem>
 - 
 
+28.05.2026
+- fix management stock, integrate between supabase and the management stock product
+- please add quantity before disupabase, belom dibuat
+
